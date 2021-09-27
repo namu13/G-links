@@ -1,5 +1,9 @@
 @import "reset.css";
+body {
+    background-color: #FBF7F0;
+}
 
+/* header css */
 header {
     font-family: 'Roboto', sans-serif;
     position: fixed;
@@ -33,4 +37,36 @@ header {
     font-size: 32px;
     width: 32px;
     height: 32px;
+}
+
+/* nav css */
+nav {
+    padding-top: 92px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+.button {
+    background-color: #CDC9C3;
+    width: 137px;
+    height: 40px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333333;
+    line-height: normal;
+    margin-left: 27px;
+}
+.button_clicked {
+    background-color: #333333;
+    width: 137px;
+    height: 40px;
+    border-radius: 30px;
+    margin-left: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    line-height: normal;
 }
