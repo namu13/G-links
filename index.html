@@ -12,26 +12,41 @@
     />
     <link rel="stylesheet" href="style.css" />
     <!-- font ; Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
     <script defer src="app.js"></script>
-    <title>Document</title>
+    <!-- firebase functions -->
+    <script defer src="/__/firebase/9.1.0/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/9.1.0/firebase-auth-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-firestore-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-analytics-compat.js"
+    ></script>
+
+    <title>G-links</title>
   </head>
   <body>
     <header>
-      <a href=# class="logo">G-links</a>
-      <input type="text" class="serchBox">
+      <a href="#" class="logo">G-links</a>
+      <input type="text" class="serchBox" />
       <div class="setting_icon">
         <i class="fas fa-cog"></i>
       </div>
     </header>
     <nav>
       <label for="checked--class" class="button">반별 링크</label>
-      <input type="checkbox" name="checked--class" id="checked--class">
+      <input type="checkbox" name="checked--class" id="checked--class" />
       <label for="checked--teacher" class="button">선생님별 링크</label>
-      <input type="checkbox" name="checked--teacher" id="checked--teacher">
+      <input type="checkbox" name="checked--teacher" id="checked--teacher" />
     </nav>
   </body>
 </html>
