@@ -1,1 +1,36 @@
 @import "reset.css";
+
+header {
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: #CDC9C3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 37px;
+    text-decoration: none;
+}
+.serchBox {
+    width: 568px;
+    height: 40px;
+    margin: auto;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+.setting_icon {
+    margin-right: 37px;
+}
+.fa-cog {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+}
