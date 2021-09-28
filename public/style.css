@@ -63,10 +63,16 @@ nav {
     width: 137px;
     height: 40px;
     border-radius: 30px;
-    margin-left: 17px;
+    margin-left: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     line-height: normal;
+}
+#checked--class {
+    visibility: hidden;
+}
+#checked--teacher {
+    visibility:hidden;
 }

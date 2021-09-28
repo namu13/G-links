@@ -59,10 +59,14 @@
       </div>
     </header>
     <nav>
-      <label for="checked--class" class="button">반별 링크</label>
-      <input type="checkbox" name="checked--class" id="checked--class" />
-      <label for="checked--teacher" class="button">선생님별 링크</label>
-      <input type="checkbox" name="checked--teacher" id="checked--teacher" />
+      <div>
+        <input type="radio" name="checkbox" id="checked--class" value='button1' onclick="radio_chk(this.value)" />
+        <label for="checked--class" class="button" id="button1">반별 링크</label>
+      </div>
+      <div>
+        <input type="radio" name="checkbox" id="checked--teacher" value='button2' onclick="radio_chk(this.value)" />
+        <label for="checked--teacher" class="button" id="button2">선생님별 링크</label>
+      </div>
     </nav>
   </body>
 </html>
