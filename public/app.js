@@ -6,7 +6,14 @@ db.collection("teacher")
     console.log(result);
   });
 
-function radio_chk(value) {
-  const btn = document.getElementById(value);
-  btn.classList.toggle('button_clicked');
-}
+// function radio_chk(idName) {
+//   const btn = document.getElementById(idName);
+//   const radio_btn = document.getElementsByName(this.name);
+//   console.log(radio_btn);
+// 	// var sel_type = null;
+  
+// 			if(radio_btn.checked == false){ 
+// 				// sel_type = chk_radio[i].value;
+//         btn.classList.toggle('button_clicked');
+// 			}
+// }

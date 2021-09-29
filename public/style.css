@@ -40,18 +40,21 @@ header {
 }
 
 /* nav css */
-nav {
+.checkbox {
+    display: flex;
     padding-top: 92px;
     height: 50px;
     width: 100%;
-    display: flex;
 }
-.button {
+
+.checkbox input[type=radio]{
+    visibility: hidden;
+}
+.checkbox input[type=radio] + label {
     background-color: #CDC9C3;
     width: 137px;
     height: 40px;
     border-radius: 30px;
-    margin-left: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,21 +62,14 @@ nav {
     line-height: normal;
     cursor: pointer;
 }
-.button_clicked {
+.checkbox input[type=radio]:checked + label {
     background-color: #333333;
     width: 137px;
     height: 40px;
     border-radius: 30px;
-    margin-left: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     line-height: normal;
-}
-#checked--class {
-    visibility: hidden;
-}
-#checked--teacher {
-    visibility:hidden;
 }
