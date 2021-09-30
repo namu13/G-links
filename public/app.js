@@ -38,7 +38,7 @@ function printTeacherScreen() {
   // teacher-box__name
   const teacherName = document.createElement("h1");
   teacherName.classList.add("teacher-box__name");
-  teacherName.innerText = "will add later";
+  teacherName.innerText = "몰라";
   teacherBox.appendChild(teacherName);
   // .teacher-box__items
   const teacherItems = document.createElement("div");
@@ -52,14 +52,15 @@ function printTeacherScreen() {
   const teacherItemTitle = document.createElement("h2");
   teacherItemTitle.classList.add("teacher-box__item__title");
   teacherItem.appendChild(teacherItemTitle);
-  teacherItemTitle.innerText = "will add later2";
+  teacherItemTitle.innerText = "M3 개인주제";
   // link icon
   const teacherItemConnect = document.createElement("i");
-  teacherItemConnect.classList.add("fas", "fa-link");
+  teacherItemConnect.classList.add("fas", "fa-play-circle", "fa-4x");
   teacherItem.appendChild(teacherItemConnect);
   // link icon
   const teacherItemCopy = document.createElement("i");
   teacherItemCopy.classList.add("fas", "fa-link");
   teacherItem.appendChild(teacherItemCopy);
 }
+printTeacherScreen();
 printTeacherScreen();
