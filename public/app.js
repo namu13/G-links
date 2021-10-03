@@ -1,7 +1,6 @@
-const main = document.querySelector("main");
 // firebase.initializeApp(config);
 // const db = firebase.firestore();
-// db.collection("teacher")
+// db.collection("")
 //   .get()
 //   .then((result) => {
 //     console.log(result);
@@ -18,49 +17,69 @@ const main = document.querySelector("main");
 //         btn.classList.toggle('button_clicked');
 // 			}
 // }
+const main = document.querySelector("main");
+
 link_db = {
   teacher: {
-    mola: {
-      individual: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      math_1: "https://www.icloud.com/numbers/08vexwWfQENcnt3CtA57Mw_CA",
+    몰라: {
+      M3_개인주제: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
+      수학_1_2_3_4팀:
+        "https://www.icloud.com/numbers/08vexwWfQENcnt3CtA57Mw_CA",
     },
-    yeti: {
-      namu: "https://www.icloud.com/numbers/0H8Cq-j6O_WvQACc17d-LPm8w",
+    예티: {
+      나무: "https://www.icloud.com/numbers/0H8Cqj6O_WvQACc17dLPm8w",
     },
   },
-  class: {},
+  class: {
+    hyewa: {
+      수학_1_2_3_4팀:
+        "https://www.icloud.com/numbers/08vexwWfQENcnt3CtA57Mw_CA",
+      사회_1_2팀: "https://www.icloud.com/numbers/0xfJ0ZoBewyfOkRGFWTRvsD3w",
+    },
+    alpha: {},
+  },
 };
-function printTeacherScreen() {
-  // .teacher-box
-  const teacherBox = document.createElement("div");
-  teacherBox.classList.add("teacher-box");
-  main.appendChild(teacherBox);
-  // teacher-box__name
-  const teacherName = document.createElement("h1");
-  teacherName.classList.add("teacher-box__name");
-  teacherName.innerText = "몰라";
-  teacherBox.appendChild(teacherName);
-  // .teacher-box__items
-  const teacherItems = document.createElement("div");
-  teacherItems.classList.add("teacher-box__items");
-  teacherBox.appendChild(teacherItems);
-  // .teacher-box__item
-  const teacherItem = document.createElement("div");
-  teacherItem.classList.add("teacher-box__item");
-  teacherItems.appendChild(teacherItem);
-  // .teacher-box__item__title
-  const teacherItemTitle = document.createElement("h2");
-  teacherItemTitle.classList.add("teacher-box__item__title");
-  teacherItem.appendChild(teacherItemTitle);
-  teacherItemTitle.innerText = "M3 개인주제";
-  // link icon
-  const teacherItemConnect = document.createElement("i");
-  teacherItemConnect.classList.add("fas", "fa-play-circle", "fa-4x");
-  teacherItem.appendChild(teacherItemConnect);
-  // link icon
-  const teacherItemCopy = document.createElement("i");
-  teacherItemCopy.classList.add("fas", "fa-link");
-  teacherItem.appendChild(teacherItemCopy);
+
+function renderBox(classification) {
+  const boxTitles = link_db[classification];
+
+  for (const boxTitle in boxTitles) {
+    // .box
+    const box = document.createElement("div");
+    box.classList.add("box");
+    main.appendChild(box);
+    // .box__name
+    const boxName = document.createElement("h1");
+    boxName.classList.add("box__name");
+    boxName.innerText = boxTitle;
+    box.appendChild(boxName);
+    // .box__items
+    const boxItems = document.createElement("div");
+    boxItems.classList.add("box__items");
+    box.appendChild(boxItems);
+
+    const boxItemTitles = link_db.teacher[boxTitle];
+
+    for (const boxItemName in boxItemTitles) {
+      // .box__item
+      const boxItem = document.createElement("div");
+      boxItem.classList.add("box__item");
+      boxItems.appendChild(boxItem);
+      // .box__item__title
+      const boxItemTitle = document.createElement("h2");
+      boxItemTitle.classList.add("box__item__title");
+      boxItem.appendChild(boxItemTitle);
+      boxItemTitle.innerText = boxItemName;
+      // .box__item__connect
+      const boxItemConnect = document.createElement("i");
+      boxItemConnect.classList.add("fas", "fa-play-circle", "fa-4x");
+      boxItem.appendChild(boxItemConnect);
+      // .box__item__copy
+      const boxItemCopy = document.createElement("i");
+      boxItemCopy.classList.add("fas", "fa-link");
+      boxItem.appendChild(boxItemCopy);
+    }
+  }
 }
-printTeacherScreen();
-printTeacherScreen();
+
+renderBox("teacher");

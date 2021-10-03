@@ -77,36 +77,38 @@ main {
   display: flex;
   flex-direction: column;
 }
-.teacher-box {
+.box {
   margin: 70px 50px 0 50px;
 }
-.teacher-box__name {
+.box__name {
   font-size: 40px;
   font-weight: 700;
 }
-.teacher-box__items {
+.box__items {
   margin: 30px 15px;
+  display: flex;
 }
-.teacher-box__item {
+.box__item {
   width: 125px;
   height: 125px;
+  margin-right: 50px;
   background-color: #fbf7f0;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.teacher-box__item__title {
+.box__item__title {
   font-size: 20px;
   font-weight: 700;
   padding-top: 10px;
   text-align: center;
 }
-.teacher-box__item i:nth-child(2) {
+.box__item i:nth-child(2) {
   margin-top: 8px;
   cursor: pointer;
 }
-.teacher-box__item i:nth-child(3) {
+.box__item i:nth-child(3) {
   margin-left: 90px;
   cursor: pointer;
 }
