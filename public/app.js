@@ -58,7 +58,7 @@ function renderBox(classification) {
     boxItems.classList.add("box__items");
     box.appendChild(boxItems);
 
-    const boxItemTitles = link_db.teacher[boxTitle];
+    const boxItemTitles = link_db[classification][boxTitle];
 
     for (const boxItemName in boxItemTitles) {
       // .box__item
