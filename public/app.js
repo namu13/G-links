@@ -17,6 +17,12 @@
 //         btn.classList.toggle('button_clicked');
 // 			}
 // }
+
+const teachersLinksButton = document.getElementsByName('checkbox');
+console.dir(teachersLinksButton);
+teachersLinksButton[0].checked = true;
+
+
 const main = document.querySelector("main");
 
 link_db = {
