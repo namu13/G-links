@@ -117,14 +117,13 @@ main {
   font-size: 64px;
 }
 .fa-play-circle:hover {
-  animation-duration: .2s;
-  animation-name: playCircle;
+  animation: playCircle .2s 1 ease 0s;
   animation-fill-mode: forwards;
 }
 .fa-link:hover {
-  animation-duration: .2s;
-  animation-name: link;
+  animation: link .2s 1 ease 0s;
   animation-fill-mode: forwards;
+
 }
 @keyframes playCircle {
   0% {
