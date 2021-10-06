@@ -46,7 +46,6 @@ header {
   height: 50px;
   width: 100%;
 }
-
 .checkbox input[type="radio"] {
   visibility: hidden;
 }
@@ -73,6 +72,8 @@ header {
   color: white;
   line-height: normal;
 }
+
+/* section css */
 main {
   display: flex;
   flex-direction: column;
@@ -111,4 +112,33 @@ main {
 .box__item i:nth-child(3) {
   margin-left: 90px;
   cursor: pointer;
+}
+.fa-play-circle {
+  font-size: 64px;
+}
+.fa-play-circle:hover {
+  animation-duration: .2s;
+  animation-name: playCircle;
+  animation-fill-mode: forwards;
+}
+.fa-link:hover {
+  animation-duration: .2s;
+  animation-name: link;
+  animation-fill-mode: forwards;
+}
+@keyframes playCircle {
+  0% {
+    font-size: 64px;
+  }
+  100% {
+    font-size: 70px;
+  }
+}
+@keyframes link {
+  0% {
+    font-size: 16px;
+  }
+  100% {
+    font-size: 20px;
+  }
 }

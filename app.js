@@ -11,7 +11,6 @@
 // }
 
 const teachersLinksButton = document.getElementsByName('checkbox');
-console.dir(teachersLinksButton);
 teachersLinksButton[0].checked = true;
 
 
@@ -70,7 +69,7 @@ function renderBox(classification) {
       boxItemTitle.innerText = boxItemName;
       // .box__item__connect
       const boxItemConnect = document.createElement("i");
-      boxItemConnect.classList.add("fas", "fa-play-circle", "fa-4x");
+      boxItemConnect.classList.add("fas", "fa-play-circle");
       boxItem.appendChild(boxItemConnect);
       // .box__item__copy
       const boxItemCopy = document.createElement("i");
