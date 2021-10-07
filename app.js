@@ -10,10 +10,8 @@
 // 			}
 // }
 
-const teachersLinksButton = document.getElementsByName('checkbox');
-console.dir(teachersLinksButton);
+const teachersLinksButton = document.getElementsByName("checkbox");
 teachersLinksButton[0].checked = true;
-
 
 const main = document.querySelector("main");
 
@@ -38,6 +36,19 @@ link_db = {
   },
 };
 
+// function handleBoxItemTitleLength(boxItemName) {
+//   const nextLine = "\n";
+//   const div = document.createElement("div");
+
+//   if (boxItemName.length <= 10) {
+//     return boxItemName;
+//   } else if (boxItemName.length > 10) {
+//     const nextTenLine = `${boxItemName.slice(0, 9)}
+//     ${nextLine}${boxItemName.slice(10)}`;
+//     return nextTenLine;
+//   }
+// }
+
 function renderBox(classification) {
   const boxTitles = link_db[classification];
 
@@ -59,6 +70,8 @@ function renderBox(classification) {
     const boxItemTitles = link_db[classification][boxTitle];
 
     for (const boxItemName in boxItemTitles) {
+      //
+      // editedBoxItemName = handleBoxItemTitleLength(boxItemName);
       // .box__item
       const boxItem = document.createElement("div");
       boxItem.classList.add("box__item");
@@ -67,6 +80,7 @@ function renderBox(classification) {
       const boxItemTitle = document.createElement("h2");
       boxItemTitle.classList.add("box__item__title");
       boxItem.appendChild(boxItemTitle);
+      // boxItemTitle.innerText = editedBoxItemName;
       boxItemTitle.innerText = boxItemName;
       // .box__item__connect
       const boxItemConnect = document.createElement("i");
@@ -81,3 +95,9 @@ function renderBox(classification) {
 }
 
 renderBox("teacher");
+// 글자가 한줄을 넘어갔을때 조치가 필요함 - 필수
+
+// 블럭이 페이지 이상으로 추가됬을 때 조치가 필요함
+// 슬라이더 버튼 추가해야 할 듯 - 룸메쓰랑 논의
+// position sticky
+// overflow가 됬을때만 chevron 활성화

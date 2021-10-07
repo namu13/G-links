@@ -89,20 +89,20 @@ main {
   display: flex;
 }
 .box__item {
-  width: 125px;
+  min-width: 125px;
   height: 125px;
   margin-right: 50px;
   background-color: #fbf7f0;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   align-items: center;
 }
 .box__item__title {
   font-size: 20px;
   font-weight: 700;
   padding-top: 10px;
-  text-align: center;
 }
 .box__item i:nth-child(2) {
   margin-top: 8px;
@@ -111,4 +111,5 @@ main {
 .box__item i:nth-child(3) {
   margin-left: 90px;
   cursor: pointer;
+  margin-bottom: 3px;
 }
