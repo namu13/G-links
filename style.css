@@ -97,7 +97,7 @@ main {
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: space-evenly;
   align-items: center;
 }
 .box__item__title {
@@ -106,39 +106,22 @@ main {
   padding-top: 10px;
 }
 .box__item i:nth-child(2) {
+  font-size: 60px;
   margin-top: 8px;
   cursor: pointer;
+  transition: transform 0.1s ease-in-out;
 }
 .box__item i:nth-child(3) {
+  font-size: 20px;
   margin-left: 90px;
   cursor: pointer;
   margin-bottom: 3px;
+  transition: transform 0.1s ease-in-out;
 }
-.fa-play-circle {
-  font-size: 64px;
-}
-.fa-play-circle:hover {
-  animation: playCircle .2s 1 ease 0s;
-  animation-fill-mode: forwards;
-}
-.fa-link:hover {
-  animation: link .2s 1 ease 0s;
-  animation-fill-mode: forwards;
 
+.box__item i:nth-child(2):hover {
+  transform: scale(1.07);
 }
-@keyframes playCircle {
-  0% {
-    font-size: 64px;
-  }
-  100% {
-    font-size: 70px;
-  }
-}
-@keyframes link {
-  0% {
-    font-size: 16px;
-  }
-  100% {
-    font-size: 20px;
-  }
+.box__item i:nth-child(3):hover {
+  transform: scale(1.1);
 }

@@ -88,7 +88,9 @@ function renderBox(classification) {
       boxItem.appendChild(boxItemConnect);
       // .box__item__copy
       const boxItemCopy = document.createElement("i");
-      boxItemCopy.classList.add("fas", "fa-link");
+      boxItemCopy.classList.add("far", "fa-copy");
+      // boxItemCopy.classList.add("fas", "fa-copy");
+      // boxItemCopy.classList.add("fas", "fa-link");
       boxItem.appendChild(boxItemCopy);
     }
   }
