@@ -19,6 +19,11 @@ link_db = {
   teacher: {
     몰라: {
       M3_개인주제: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
+      M3_개인주제아: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
+      lolololololololololololololololol:
+        "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
+      lololololololol:
+        "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
       수학_1_2_3_4팀:
         "https://www.icloud.com/numbers/08vexwWfQENcnt3CtA57Mw_CA",
     },
@@ -36,18 +41,14 @@ link_db = {
   },
 };
 
-// function handleBoxItemTitleLength(boxItemName) {
-//   const nextLine = "\n";
-//   const div = document.createElement("div");
-
-//   if (boxItemName.length <= 10) {
-//     return boxItemName;
-//   } else if (boxItemName.length > 10) {
-//     const nextTenLine = `${boxItemName.slice(0, 9)}
-//     ${nextLine}${boxItemName.slice(10)}`;
-//     return nextTenLine;
-//   }
-// }
+function handleBoxItemTitleLength(titleBox, title) {
+  console.dir(titleBox);
+  console.log(titleBox);
+  console.log(titleBox.scrollHeight);
+  if (titleBox.scrollHeight === 29) {
+    return title;
+  }
+}
 
 function renderBox(classification) {
   const boxTitles = link_db[classification];
@@ -71,7 +72,6 @@ function renderBox(classification) {
 
     for (const boxItemName in boxItemTitles) {
       //
-      // editedBoxItemName = handleBoxItemTitleLength(boxItemName);
       // .box__item
       const boxItem = document.createElement("div");
       boxItem.classList.add("box__item");
@@ -80,8 +80,11 @@ function renderBox(classification) {
       const boxItemTitle = document.createElement("h2");
       boxItemTitle.classList.add("box__item__title");
       boxItem.appendChild(boxItemTitle);
-      // boxItemTitle.innerText = editedBoxItemName;
       boxItemTitle.innerText = boxItemName;
+
+      editedBoxItemName = handleBoxItemTitleLength(boxItemTitle, boxItemName);
+      boxItemTitle.innerText = editedBoxItemName;
+      // boxItemTitle.innerText = boxItemName;
       // .box__item__connect
       const boxItemConnect = document.createElement("i");
       boxItemConnect.classList.add("fas", "fa-play-circle");

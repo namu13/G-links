@@ -90,7 +90,7 @@ main {
   display: flex;
 }
 .box__item {
-  min-width: 125px;
+  width: 125px;
   height: 125px;
   margin-right: 50px;
   background-color: #fbf7f0;
@@ -104,6 +104,7 @@ main {
   font-size: 20px;
   font-weight: 700;
   padding-top: 10px;
+  word-break: break-all;
 }
 .box__item i:nth-child(2) {
   font-size: 60px;
