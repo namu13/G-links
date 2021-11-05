@@ -132,3 +132,7 @@ main {
 .box__item i:nth-child(3):active {
   transform: scale(0.9);
 }
+
+.hidden {
+  display: none;
+}
