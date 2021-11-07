@@ -42,12 +42,19 @@ link_db = {
 };
 
 function handleBoxItemTitleLength(titleBox, title) {
-  console.dir(titleBox);
-  console.log(titleBox);
-  console.log(titleBox.scrollHeight);
-  if (titleBox.scrollHeight === 29) {
-    return title;
-  }
+  // console.dir(titleBox);
+  // console.log(titleBox);
+  // console.log(titleBox.scrollHeight);
+  // if (titleBox.scrollHeight === 29) {
+  //   return title;
+  // }
+
+  // const checkOverflow =
+  //   titleBox.scrollHeight > titleBox.clientHeight ||
+  //   titleBox.scrollWidth > titleBox.clientWidth;
+  // console.log(checkOverflow);
+
+  return title;
 }
 
 function renderBox(classification) {
@@ -82,10 +89,11 @@ function renderBox(classification) {
       boxItem.appendChild(boxItemTitle);
       boxItemTitle.innerText = boxItemName;
 
-      editedBoxItemName = handleBoxItemTitleLength(boxItemTitle, boxItemName);
-      boxItemTitle.innerText = editedBoxItemName;
+      // editedBoxItemName = handleBoxItemTitleLength(boxItemTitle, boxItemName);
+      // boxItemTitle.innerText = editedBoxItemName;
       // boxItemTitle.innerText = boxItemName;
       // .box__item__connect
+
       const boxItemConnect = document.createElement("i");
       boxItemConnect.classList.add("fas", "fa-play-circle");
       boxItem.appendChild(boxItemConnect);
@@ -99,18 +107,22 @@ function renderBox(classification) {
   }
 }
 
-document.getElementsByTagName('body').addEventListener('load', renderBox("teacher"))
-function btnClick() {
-  const btn1 = document.getElementById('checkbox-1');
-  const btn2 = document.getElementById('checkbox-2');
-  if (btn1.checked == true) {
-    renderBox("teacher")
-    console.log('1')
-  } else if (btn2.checked == true) {
-    renderBox("class")
-    console.log('2')
-  }
-}
+renderBox("teacher");
+
+// document
+//   .getElementsByTagName("body")
+//   .addEventListener("load", renderBox("teacher"));
+// function btnClick() {
+//   const btn1 = document.getElementById("checkbox-1");
+//   const btn2 = document.getElementById("checkbox-2");
+//   if (btn1.checked == true) {
+//     renderBox("teacher");
+//     console.log("1");
+//   } else if (btn2.checked == true) {
+//     renderBox("class");
+//     console.log("2");
+//   }
+// }
 // 글자가 한줄을 넘어갔을때 조치가 필요함 - 필수
 
 // 블럭이 페이지 이상으로 추가됬을 때 조치가 필요함
