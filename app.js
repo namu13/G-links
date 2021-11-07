@@ -64,6 +64,7 @@ function renderBox(classification) {
     // .box
     const box = document.createElement("div");
     box.classList.add("box");
+    box.classList.add(classification);
     main.appendChild(box);
     // .box__name
     const boxName = document.createElement("h1");
@@ -107,22 +108,35 @@ function renderBox(classification) {
   }
 }
 
-renderBox("teacher");
+const bodyEl = document.getElementsByTagName("body")[0];
 
-// document
-//   .getElementsByTagName("body")
-//   .addEventListener("load", renderBox("teacher"));
-// function btnClick() {
-//   const btn1 = document.getElementById("checkbox-1");
-//   const btn2 = document.getElementById("checkbox-2");
-//   if (btn1.checked == true) {
-//     renderBox("teacher");
-//     console.log("1");
-//   } else if (btn2.checked == true) {
-//     renderBox("class");
-//     console.log("2");
-//   }
-// }
+bodyEl.addEventListener("load", renderBox("teacher"));
+bodyEl.addEventListener("load", renderBox("class"));
+// buttons
+const btn1 = document.getElementById("checkbox-1");
+const btn2 = document.getElementById("checkbox-2");
+// Els
+const teacherEl = document.querySelectorAll(".teacher");
+const classEl = document.querySelectorAll(".class");
+// Default
+for (i = 0; i < classEl.length; i++) {
+  classEl[i].classList.add("hidden");
+}
+
+function btnClick() {
+  if (btn1.checked == true) {
+    for (i = 0; i < classEl.length; i++) {
+      classEl[i].classList.add("hidden");
+      teacherEl[i].classList.remove("hidden");
+    }
+  } else if (btn2.checked == true) {
+    for (i = 0; i < teacherEl.length; i++) {
+      classEl[i].classList.remove("hidden");
+      teacherEl[i].classList.add("hidden");
+    }
+  }
+}
+
 // 글자가 한줄을 넘어갔을때 조치가 필요함 - 필수
 
 // 블럭이 페이지 이상으로 추가됬을 때 조치가 필요함
