@@ -20,11 +20,11 @@ link_db = {
     몰라: {
       M3_개인주제: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
       M3_개인주제아: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      lolololololololololololololololol:
+      lolololololololololo:
         "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
       lololololololol:
         "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      수학_1_2_3_4팀:
+      수학_1_2_3_4팀팀팀팀팀:
         "https://www.icloud.com/numbers/08vexwWfQENcnt3CtA57Mw_CA",
     },
     예티: {
@@ -38,24 +38,9 @@ link_db = {
       사회_1_2팀: "https://www.icloud.com/numbers/0xfJ0ZoBewyfOkRGFWTRvsD3w",
     },
     alpha: {},
+    kepston: {},
   },
 };
-
-function handleBoxItemTitleLength(titleBox, title) {
-  // console.dir(titleBox);
-  // console.log(titleBox);
-  // console.log(titleBox.scrollHeight);
-  // if (titleBox.scrollHeight === 29) {
-  //   return title;
-  // }
-
-  // const checkOverflow =
-  //   titleBox.scrollHeight > titleBox.clientHeight ||
-  //   titleBox.scrollWidth > titleBox.clientWidth;
-  // console.log(checkOverflow);
-
-  return title;
-}
 
 function renderBox(classification) {
   const boxTitles = link_db[classification];
@@ -89,10 +74,6 @@ function renderBox(classification) {
       boxItemTitle.classList.add("box__item__title");
       boxItem.appendChild(boxItemTitle);
       boxItemTitle.innerText = boxItemName;
-
-      // editedBoxItemName = handleBoxItemTitleLength(boxItemTitle, boxItemName);
-      // boxItemTitle.innerText = editedBoxItemName;
-      // boxItemTitle.innerText = boxItemName;
       // .box__item__connect
 
       const boxItemConnect = document.createElement("i");
@@ -108,32 +89,36 @@ function renderBox(classification) {
   }
 }
 
-const bodyEl = document.getElementsByTagName("body")[0];
+const bodyEl = document.querySelector("body");
 
 bodyEl.addEventListener("load", renderBox("teacher"));
 bodyEl.addEventListener("load", renderBox("class"));
 // buttons
-const btn1 = document.getElementById("checkbox-1");
-const btn2 = document.getElementById("checkbox-2");
+const btn1 = document.querySelector("#checkbox-1");
+const btn2 = document.querySelector("#checkbox-2");
 // Els
-const teacherEl = document.querySelectorAll(".teacher");
-const classEl = document.querySelectorAll(".class");
+const teacherEls = document.querySelectorAll(".teacher");
+const classEls = document.querySelectorAll(".class");
 // Default
-for (i = 0; i < classEl.length; i++) {
-  classEl[i].classList.add("hidden");
-}
+classEls.forEach((classEl) => {
+  classEl.classList.add("hidden");
+});
 
 function btnClick() {
-  if (btn1.checked == true) {
-    for (i = 0; i < classEl.length; i++) {
-      classEl[i].classList.add("hidden");
-      teacherEl[i].classList.remove("hidden");
-    }
-  } else if (btn2.checked == true) {
-    for (i = 0; i < teacherEl.length; i++) {
-      classEl[i].classList.remove("hidden");
-      teacherEl[i].classList.add("hidden");
-    }
+  if (btn1.checked) {
+    classEls.forEach((classEl) => {
+      classEl.classList.add("hidden");
+    });
+    teacherEls.forEach((teacherEl) => {
+      teacherEl.classList.remove("hidden");
+    });
+  } else if (btn2.checked) {
+    teacherEls.forEach((teacherEl) => {
+      teacherEl.classList.add("hidden");
+    });
+    classEls.forEach((classEl) => {
+      classEl.classList.remove("hidden");
+    });
   }
 }
 
