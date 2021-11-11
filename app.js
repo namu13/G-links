@@ -77,11 +77,11 @@ function renderBox(classification) {
       // .box__item__connect
 
       const boxItemConnect = document.createElement("i");
-      boxItemConnect.classList.add("fas", "fa-play-circle");
+      boxItemConnect.classList.add("fas", "fa-play-circle", "play_button");
       boxItem.appendChild(boxItemConnect);
       // .box__item__copy
       const boxItemCopy = document.createElement("i");
-      boxItemCopy.classList.add("far", "fa-copy");
+      boxItemCopy.classList.add("far", "fa-copy", "copy_button");
       // boxItemCopy.classList.add("fas", "fa-copy");
       // boxItemCopy.classList.add("fas", "fa-link");
       boxItem.appendChild(boxItemCopy);
@@ -102,6 +102,7 @@ const classEls = document.querySelectorAll(".class");
 // Default
 classEls.forEach((classEl) => {
   classEl.classList.add("hidden");
+  openLink("teacher");
 });
 
 function btnClick() {
@@ -112,14 +113,31 @@ function btnClick() {
     teacherEls.forEach((teacherEl) => {
       teacherEl.classList.remove("hidden");
     });
-  } else if (btn2.checked) {
+    openLink("teacher");
+  } else {
     teacherEls.forEach((teacherEl) => {
       teacherEl.classList.add("hidden");
     });
     classEls.forEach((classEl) => {
       classEl.classList.remove("hidden");
     });
+    openLink("class");
   }
+}
+
+function openLink(category) {
+  const playButtons = document.querySelectorAll(".play_button");
+
+  playButtons.forEach((playButton) => {
+    playButton.addEventListener("click", (playButton) => {
+      const buttonCategory = playButton.path[3].firstChild.innerText;
+      const buttonTitle = playButton.path[1].innerText;
+
+      const url = link_db[category][buttonCategory][buttonTitle];
+
+      window.open(url);
+    });
+  });
 }
 
 // 글자가 한줄을 넘어갔을때 조치가 필요함 - 필수
