@@ -1,6 +1,7 @@
 @import "reset.css";
 body {
   background-color: #fbf7f0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* header css */
