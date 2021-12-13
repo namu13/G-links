@@ -1,3 +1,4 @@
 node_modules
 .vscode
 apiKeys.js
+.DS_Store
