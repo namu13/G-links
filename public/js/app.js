@@ -1,15 +1,3 @@
-// function radio_chk(idName) {
-//   const btn = document.getElementById(idName);
-//   const radio_btn = document.getElementsByName(this.name);
-//   console.log(radio_btn);
-// 	// var sel_type = null;
-
-// 			if(radio_btn.checked == false){
-// 				// sel_type = chk_radio[i].value;
-//         btn.classList.toggle('button_clicked');
-// 			}
-// }
-
 const teachersLinksButton = document.getElementsByName("checkbox");
 teachersLinksButton[0].checked = true;
 
@@ -18,17 +6,12 @@ const main = document.querySelector("main");
 link_db = {
   teacher: {
     몰라: {
-      M3_개인주제: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      M3_개인주제아: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      lolololololololololo:
-        "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      lololololololol:
-        "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
-      수학_1_2_3_4팀팀팀팀팀:
-        "https://www.icloud.com/numbers/08vexwWfQENcnt3CtA57Mw_CA",
+      M4_개인주제: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
+      M4_팀: "https://www.icloud.com/numbers/03u1K2Lm4AtZDHM8IR_DMe5uA",
     },
-    예티: {
+    쩜백: {
       나무: "https://www.icloud.com/numbers/0H8Cqj6O_WvQACc17dLPm8w",
+      룸메: "https://www.icloud.com/numbers/0H8Cqj6O_WvQACc17dLPm8w",
     },
   },
   class: {
@@ -82,8 +65,6 @@ function renderBox(classification) {
       // .box__item__copy
       const boxItemCopy = document.createElement("i");
       boxItemCopy.classList.add("far", "fa-copy", "copy_button");
-      // boxItemCopy.classList.add("fas", "fa-copy");
-      // boxItemCopy.classList.add("fas", "fa-link");
       boxItem.appendChild(boxItemCopy);
     }
   }
@@ -127,6 +108,7 @@ function btnClick() {
 
 function openLink(category) {
   const playButtons = document.querySelectorAll(".play_button");
+  const appleOS = /(iPad|iPhone|iPod|Macintosh)/.test(navigator.userAgent);
 
   playButtons.forEach((playButton) => {
     playButton.addEventListener("click", (playButton) => {
@@ -134,6 +116,7 @@ function openLink(category) {
       const buttonTitle = playButton.path[1].innerText;
 
       const url = link_db[category][buttonCategory][buttonTitle];
+      const appUrlScheme = `numbers://${url}`;
 
       window.open(url);
     });
