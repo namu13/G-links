@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/chan050316/G-links/issues"
   },
-  "homepage": "https://github.com/chan050316/G-links#readme"
+  "homepage": "https://github.com/chan050316/G-links#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "npm": "^8.1.3"
+  }
 }

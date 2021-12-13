@@ -1,11 +1,12 @@
 @import "reset.css";
 body {
   background-color: #fbf7f0;
+  font-family: "Roboto", sans-serif;
 }
 
 /* header css */
 header {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   position: fixed;
   width: 100%;
   height: 80px;
