@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.4/css/all.css' integrity='sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm' crossorigin='anonymous')
+  link(rel='stylesheet' href='../css/style.css')
+  // font ; Roboto
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap' rel='stylesheet')
+  script(defer src='../js/app.js')
+  title G-links
+header
+  a.logo(href='#') G-links
+  input.serchBox(type='text')
+  .setting_icon
+    i.fas.fa-cog
+nav.checkbox
+  input#checkbox-1(type='radio' name='checkbox' onclick='btnClick()')
+  label(for='checkbox-1') 선생님별 링크
+  input#checkbox-2(type='radio' name='checkbox' onclick='btnClick()')
+  label(for='checkbox-2') 반별 링크
+main
+  include ../partials/index-teacher
+

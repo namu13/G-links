@@ -1,0 +1,13 @@
+each name in names
+    .box
+      h1.box__name #{name}
+      .box__items
+        each item, index in link_db
+          if name === link_db[index].name
+            .box__item
+              h2.box__item__title #{item.title}
+
+              -const url = item.url
+              a.box__item__link(href=url, target="_blank")
+                i.fas.fa-play-circle.play_button
+              i.far.fa-copy.copy_button(val=url)
