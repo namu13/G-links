@@ -1,19 +1,11 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.4/css/all.css' integrity='sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm' crossorigin='anonymous')
-  link(rel='stylesheet' href='../css/style.css')
-  // font ; Roboto
-  link(rel='preconnect' href='https://fonts.googleapis.com')
-  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
-  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap' rel='stylesheet')
-  script(defer src='../js/app.js')
+include ../partials/head
   title G-links
 header
-  a.logo(href='#') G-links
+  a.logo(href='/') G-links
   input.serchBox(type='text')
+  a.login_link(href="/users/login")
+    .login_button
+      p.login_button__text 로그인
   .setting_icon
     i.fas.fa-cog
 nav.checkbox
@@ -21,6 +13,18 @@ nav.checkbox
   label(for='checkbox-1') 선생님별 링크
   input#checkbox-2(type='radio' name='checkbox' onclick='btnClick()')
   label(for='checkbox-2') 반별 링크
-main
-  include ../partials/index-teacher
+main.index-main
+  each name in names
+    .box
+      h1.box__name #{name}
+      .box__items
+        each item, index in link_db
+          if name === link_db[index].name
+            .box__item
+              h2.box__item__title #{item.title}
+
+              -const url = item.url
+              a.box__item__link(href=url, target="_blank")
+                i.fas.fa-play-circle.play_button
+              i.far.fa-copy.copy_button(val=url)
 

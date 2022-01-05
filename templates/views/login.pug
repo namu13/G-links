@@ -1,0 +1,18 @@
+include ../partials/head
+    title Login
+header 
+    a.logo(href='/') G-links
+main.login-main
+    .login
+        h1.login__title Login
+        form.login__form(action="users/login" method="post")
+            .login__email
+                label.login__email__title(for="email") E-mail
+                input.login__email__input(type="email" placeholder="이메일" id="email" required)
+            .login__password 
+                label.login__password__title(for="password") Password
+                input.login__password__input(type="password" placeholder="비밀번호" id="password" minlength="6" required)
+            input.login__submit(type="submit" value="로그인")
+        .signup-link
+            span.signup-link__p Or Sign Up with
+            a.signup-link__link(href="signup.pug") Sign Up

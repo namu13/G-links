@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
-const Link_db = require("../src/db/mongoose");
+const mainRouter = require("../src/routes/main");
+const userRouter = require("./routes/user");
 require("../src/db/mongoose");
 
 const app = express();
@@ -13,22 +14,15 @@ app.set("view engine", "pug");
 app.set("views", viewsPath);
 
 app.use(express.static(publicDirectioryPath));
-
-app.get("/", async (req, res) => {
-  const link_db = await Link_db.find({ class: "혜화" });
-  const names = [];
-  link_db.forEach((item) => {
-    if (!names.includes(item.name)) {
-      names.push(item.name);
-    }
-  });
-
-  res.render("index", {
-    link_db,
-    names,
-  });
-});
+app.use(express.json());
+app.use(mainRouter);
+app.use(userRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
 });
+
+// 로그인 페이지 만들기
+// signup post req (구현이 되었으나 db에 동일한 메일 주소가 들어오면 서버가 멈추는 에러가 발생)
+// when user signup generate token
+// when user signup or modify password, hash password

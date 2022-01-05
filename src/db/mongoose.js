@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const uri = require("../../apiKeys");
+const Link_db = require("../models/link");
 
 mongoose
   .connect(uri)
@@ -9,28 +10,6 @@ mongoose
   .catch((e) => {
     console.log(e);
   });
-
-const Link_db = new mongoose.model("link_db", {
-  name: {
-    type: String,
-    required: true,
-  },
-  class: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  url: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-});
-
 // Link_db.find({ name: "도령" }).then((data) => {
 //   console.log(data);
 // });
@@ -43,5 +22,3 @@ const Link_db = new mongoose.model("link_db", {
 // });
 
 // link_db.save();
-
-module.exports = Link_db;
