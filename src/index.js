@@ -22,7 +22,4 @@ app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
 });
 
-// 로그인 페이지 만들기
-// signup post req (구현이 되었으나 db에 동일한 메일 주소가 들어오면 서버가 멈추는 에러가 발생)
-// when user signup generate token
-// when user signup or modify password, hash password
+// 로그인 구현

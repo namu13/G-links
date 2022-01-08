@@ -5,13 +5,13 @@ header
 main.login-main
     .login
         h1.login__title Login
-        form.login__form(action="users/login" method="post")
+        form.login__form(action="/users/login" method="post" Content-Type="application/json")
             .login__email
                 label.login__email__title(for="email") E-mail
-                input.login__email__input(type="email" placeholder="이메일" id="email" required)
+                input.login__email__input(type="email" name="email" placeholder="이메일" id="email" required)
             .login__password 
                 label.login__password__title(for="password") Password
-                input.login__password__input(type="password" placeholder="비밀번호" id="password" minlength="6" required)
+                input.login__password__input(type="password" name="password" placeholder="비밀번호" id="password" minlength="6" required)
             input.login__submit(type="submit" value="로그인")
         .signup-link
             span.signup-link__p Or Sign Up with
