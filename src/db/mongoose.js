@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const localUri = require("../../apiKeys");
+// const localUri = require("../../apiKeys");
 const Link_db = require("../models/link");
 
-const uri = process.env.MONGODB_URI || localUri;
+const uri = process.env.MONGODB_URI;
 
 mongoose
   .connect(uri)
