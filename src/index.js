@@ -14,7 +14,10 @@ app.set("view engine", "pug");
 app.set("views", viewsPath);
 
 app.use(express.static(publicDirectioryPath));
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(mainRouter);
 app.use(userRouter);
 
