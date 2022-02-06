@@ -5,7 +5,7 @@ header
 main.login-main
     .login
         h1.login__title Login
-        form.login__form(action="/users/login" method="post" enctype="application/json")
+        form.login__form(action="/users/login" method="post")
             .login__email
                 label.login__email__title(for="email") E-mail
                 input.login__email__input(type="email" name="email" placeholder="이메일" id="email" required)

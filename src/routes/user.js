@@ -3,6 +3,17 @@ const User = require("../models/user");
 const auth = require("../middleware/auth");
 const router = new express.Router();
 
+router.post("/users", async (req, res) => {
+  const user = new User(req.body);
+
+  const token = await user.generateAuthToken();
+  try {
+    res.status(201).send({ user, token });
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
 router.get("/users/login", (req, res) => {
   res.render("login");
 });
@@ -20,7 +31,7 @@ router.post("/users/login", async (req, res) => {
   }
 });
 
-router.post("/logout", auth, async (req, res) => {
+router.post("users/logout", auth, async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter(
       (token) => token.token !== req.token
@@ -32,7 +43,7 @@ router.post("/logout", auth, async (req, res) => {
   }
 });
 
-router.post("/logoutAll", auth, async (req, res) => {
+router.post("users/logoutAll", auth, async (req, res) => {
   try {
     req.user.tokens = [];
     await req.user.save();
@@ -42,24 +53,21 @@ router.post("/logoutAll", auth, async (req, res) => {
   }
 });
 
-router.post("/users", async (req, res) => {
-  const user = new User(req.body);
+router.patch("/users/me", auth, async (req, res) => {
+  const allowedList = ["nickname", "email", "password"];
+  const updates = Object.keys(req.body);
+  console.log(updates);
 
-  const token = await user.generateAuthToken();
-  try {
-    res.status(201).send({ user, token });
-  } catch (e) {
-    res.status(500).send(e);
-  }
+  res.send();
 });
 
-// router.patch("/users", auth, async (req, res) => {
-//   const list = [nickname, email, password];
-//   // const updates = Object.keys(req.body);
-//   res.send();
-//   // list.forEach((list) => {
-
-//   // })
-// });
+router.delete("/users/me", auth, async (req, res) => {
+  try {
+    await req.user.remove();
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
 
 module.exports = router;

@@ -6,6 +6,13 @@ copyButtons.forEach((copyButton) => {
   });
 });
 
+const uploadButton = document.querySelector(".add_link");
+const uploadForm = document.querySelector(".upload");
+
+uploadButton.addEventListener("click", () => {
+  uploadForm.classList.toggle("hidden");
+});
+
 // const teachersLinksButton = document.getElementsByName("checkbox");
 // teachersLinksButton[0].checked = true;
 

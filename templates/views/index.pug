@@ -2,12 +2,47 @@ include ../partials/head
   title G-links
 header
   a.logo(href='/') G-links
-  input.serchBox(type='text')
+  input.serchBox(type='search')
+
+  a.add_link(href="#")
+    .add_link__button
+      p.add_link__button__text 링크 추가
+
   a.login_link(href="/users/login")
     .login_button
       p.login_button__text 로그인
+
   .setting_icon
     i.fas.fa-cog
+  
+  form( class="upload hidden" action="/link" method="post")
+    .upload__title   
+      label.upload__title__text(for="title") 제목
+      input.upload__title__input(type="text" id="name" name="title" maxlength="20" required)
+    .upload__link 
+      label.upload__link__title(for="link") 링크
+      input.upload__link__input(type="url" name="link" id="link" required)
+    .upload__class
+      label.upload__class__title(for="class") 과정
+      select.upload__class__input(name="class" id="class" required)
+        option(value="" disabled selected)
+        option(value="혜화랩") 혜화랩
+        option(value="알파랩") 알파랩
+    .upload__teacher 
+      label.upload__teacher__name(for="teacher") 코칭쌤
+      select.upload__teacher__input(name="teacher" id="teacher" required)
+        option(value="" disabled selected)
+        option(value="몰라") 몰라
+        option(value="수선") 수선
+        option(value="예티") 예티
+        option(value="도령") 도령
+        option(value="히치") 히치
+        option(value="쩜백") 쩜백
+        option(value="은열") 은열
+        option(value="라라") 라라
+    .upload__submit
+      input.upload__button(type="submit" value="업로드")
+
 nav.checkbox
   input#checkbox-1(type='radio' name='checkbox' onclick='btnClick()')
   label(for='checkbox-1') 선생님별 링크
