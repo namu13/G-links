@@ -1,17 +1,17 @@
 const express = require("express");
-const Link_db = require("../models/link");
+const Link = require("../models/link");
 const router = new express.Router();
 
 router.get("/", async (req, res) => {
-  const link_db = await Link_db.find({ class: "혜화" });
-  const names = [];
-  link_db.forEach((item) => {
-    if (!names.includes(item.name)) {
-      names.push(item.name);
+  const link = await Link.find({ class: "혜화랩" });
+  const teachers = [];
+  link.forEach((item) => {
+    if (!teachers.includes(item.teacher)) {
+      teachers.push(item.teacher);
     }
   });
 
-  res.render("index", { link_db, names });
+  res.render("index", { link, teachers });
 });
 
 module.exports = router;

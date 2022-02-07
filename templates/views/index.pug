@@ -49,12 +49,12 @@ nav.checkbox
   input#checkbox-2(type='radio' name='checkbox' onclick='btnClick()')
   label(for='checkbox-2') 반별 링크
 main.index-main
-  each name in names
+  each teacher in teachers
     .box
-      h1.box__name #{name}
+      h1.box__name #{teacher}
       .box__items
-        each item, index in link_db
-          if name === link_db[index].name
+        each item, index in link
+          if teacher === link[index].teacher
             .box__item
               h2.box__item__title #{item.title}
 

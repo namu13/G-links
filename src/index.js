@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const mainRouter = require("../src/routes/main");
 const userRouter = require("./routes/user");
+const linkRouter = require("./routes/link");
 require("../src/db/mongoose");
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(mainRouter);
 app.use(userRouter);
+app.use(linkRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
