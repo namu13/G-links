@@ -56,9 +56,21 @@ router.post("users/logoutAll", auth, async (req, res) => {
 router.patch("/users/me", auth, async (req, res) => {
   const allowedList = ["nickname", "email", "password"];
   const updates = Object.keys(req.body);
-  console.log(updates);
-
-  res.send();
+  const isValidOperation = updates.filter((item) => {
+    allowedList.includes(item);
+  });
+  if (!isValidOperation) {
+    return res.status(400).send({ error: "Invalid updates!" });
+  }
+  try {
+    updates.forEach((item) => {
+      req.user[item] = req.body[item];
+    });
+    await req.user.save();
+    res.send(req.user);
+  } catch (e) {
+    res.status(400).send(e);
+  }
 });
 
 router.delete("/users/me", auth, async (req, res) => {

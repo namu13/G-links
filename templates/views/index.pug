@@ -22,12 +22,18 @@ header
     .upload__link 
       label.upload__link__title(for="link") 링크
       input.upload__link__input(type="url" name="link" id="link" required)
-    .upload__class
-      label.upload__class__title(for="class") 과정
-      select.upload__class__input(name="class" id="class" required)
-        option(value="" disabled selected)
-        option(value="혜화랩") 혜화랩
-        option(value="알파랩") 알파랩
+    .upload__time
+      .upload__year
+        label.upload__year__title(for="year") 모듈
+        select.upload__year__input(name="year" id="year" required)
+          option(value="" disabled selected)
+      .upload__module
+        select.upload__module__input(name="module" id="module" required)
+          option(value="" disabled selected)
+          option(value="1") 1모듈
+          option(value="2") 2모듈
+          option(value="3") 3모듈
+          option(value="4") 4모듈
     .upload__teacher 
       label.upload__teacher__name(for="teacher") 코칭쌤
       select.upload__teacher__input(name="teacher" id="teacher" required)
@@ -58,8 +64,8 @@ main.index-main
             .box__item
               h2.box__item__title #{item.title}
 
-              -const url = item.url
-              a.box__item__link(href=url, target="_blank")
+              -const link = item.link
+              a.box__item__link(href=link, target="_blank")
                 i.fas.fa-play-circle.play_button
-              i.far.fa-copy.copy_button(val=url)
+              i.far.fa-copy.copy_button(val=link)
 

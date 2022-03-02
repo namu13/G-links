@@ -27,4 +27,10 @@ app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
 });
 
-// 로그인 구현
+// link upload frontend modify
+// delete class
+// add year, module
+
+// link schema modify
+// delete class
+// add year, module

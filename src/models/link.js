@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const User = require("./user");
 
 const linkSchema = new mongoose.Schema({
   title: {
@@ -12,10 +13,17 @@ const linkSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  class: {
-    type: String,
+  year: {
+    type: Number,
     required: true,
-    enum: ["혜화랩", "알파랩"],
+    min: 2017,
+    max: new Date().getFullYear(),
+  },
+  module: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 4,
   },
   teacher: {
     type: String,
@@ -25,46 +33,5 @@ const linkSchema = new mongoose.Schema({
 });
 
 const Link = mongoose.model("link", linkSchema);
-
-/*
-name
-:
-"몰라"
-class
-:
-"혜화"
-title
-:
-"2021 M4 수학 학습지"
-url
-:
-"https://www.icloud.com/numbers/0WWnoQITF12vuVu0M6_ukPpSQ"
-
-name
-:
-"쩜백"
-class
-:
-"혜화"
-title
-:
-"2021 M4 주제 중심"
-url
-:
-"https://www.icloud.com/numbers/0WWnoQITF12vuVu0M6_ukPpS"
-
-name
-:
-"쩜백"
-class
-:
-"혜화"
-title
-:
-"2021 M4 주제 중심 1팀"
-url
-:
-"https://www.icloud.com/numbers/0WWnoQITF12vuVu0M6_ukPp"
-*/
 
 module.exports = Link;

@@ -1,3 +1,4 @@
+// Copy button logic
 const copyButtons = document.querySelectorAll(".copy_button");
 
 copyButtons.forEach((copyButton) => {
@@ -6,12 +7,25 @@ copyButtons.forEach((copyButton) => {
   });
 });
 
+// upload button logic
 const uploadButton = document.querySelector(".add_link");
 const uploadForm = document.querySelector(".upload");
 
 uploadButton.addEventListener("click", () => {
   uploadForm.classList.toggle("hidden");
 });
+
+// upload button year logic
+const uploadYear = document.querySelector(".upload__year__input");
+
+let year = new Date().getFullYear();
+
+for (year; year > 2016; year--) {
+  const option = document.createElement("option");
+  option.setAttribute("value", year);
+  option.textContent = year + "년";
+  uploadYear.appendChild(option);
+}
 
 // const teachersLinksButton = document.getElementsByName("checkbox");
 // teachersLinksButton[0].checked = true;
