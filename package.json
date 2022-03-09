@@ -20,6 +20,7 @@
   "homepage": "https://github.com/chan050316/G-links#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.1",

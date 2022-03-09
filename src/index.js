@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const mainRouter = require("../src/routes/main");
 const userRouter = require("./routes/user");
 const linkRouter = require("./routes/link");
@@ -19,6 +20,8 @@ app.use(express.static(publicDirectioryPath));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(cookieParser());
+
 app.use(mainRouter);
 app.use(userRouter);
 app.use(linkRouter);
@@ -27,10 +30,6 @@ app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
 });
 
-// link upload frontend modify
-// delete class
-// add year, module
-
-// link schema modify
-// delete class
-// add year, module
+// api 로그인 추가
+// 토큰 쿠키에 저장 완료
+// db ref로 연결

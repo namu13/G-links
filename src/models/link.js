@@ -30,6 +30,11 @@ const linkSchema = new mongoose.Schema({
     required: true,
     enum: ["몰라", "수선", "예티", "도령", "히치", "쩜백", "은열", "라라"],
   },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
 });
 
 const Link = mongoose.model("link", linkSchema);

@@ -8,7 +8,11 @@ router.post("/users", async (req, res) => {
 
   const token = await user.generateAuthToken();
   try {
-    res.status(201).send({ user, token });
+    res.status(201).cookie("authToken", token, {
+      httpOnly: true,
+      secure: true,
+      signed: true,
+    });
   } catch (e) {
     res.status(500).send(e);
   }
@@ -25,7 +29,13 @@ router.post("/users/login", async (req, res) => {
       req.body.password
     );
     const token = await user.generateAuthToken();
-    res.send({ user, token });
+    res.cookie("authToken", token, {
+      sameSite: "strict",
+      httpOnly: true,
+      secure: true,
+    });
+    res.redirect("/");
+    console.log(req.cookies);
   } catch (e) {
     res.status(400).send(e);
   }
