@@ -24,6 +24,7 @@
   flex-direction: column;
   width: 360px;
 }
+.login__nickname,
 .login__email,
 .login__password {
   display: flex;

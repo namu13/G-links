@@ -210,15 +210,15 @@ header {
   flex-direction: column;
 }
 .box {
-  height: 230px;
-  margin: 45px 50px 0 50px;
+  height: auto;
+  margin: 35px 0 0 50px;
 }
 .box__name {
   font-size: 40px;
   font-weight: 700;
 }
 .box__items {
-  margin: 30px 15px;
+  margin: 30px 15px 0 15px;
   display: flex;
   flex-wrap: wrap;
 }

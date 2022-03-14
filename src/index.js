@@ -30,6 +30,6 @@ app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
 });
 
-// api 로그인 추가
-// 토큰 쿠키에 저장 완료
-// db ref로 연결
+// 회원가입 FE 완성
+// 회원가입 cookie 발행 완료
+// 토큰이 있으면 /users/login 라우팅에 접근 불가 설정하여 토큰 계속 누적 방지

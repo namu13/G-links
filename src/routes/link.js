@@ -10,7 +10,7 @@ router.post("/link", auth, async (req, res) => {
   });
   try {
     await linkData.save();
-    res.status(201).redirect("back");
+    res.status(201).redirect("/");
   } catch (e) {
     res.status(500).send(e);
   }

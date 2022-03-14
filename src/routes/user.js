@@ -3,23 +3,33 @@ const User = require("../models/user");
 const auth = require("../middleware/auth");
 const router = new express.Router();
 
-router.post("/users", async (req, res) => {
+const cookieOptions = {
+  sameSite: "strict",
+  httpOnly: true,
+  secure: true,
+};
+
+router.post("/users/signup", async (req, res) => {
   const user = new User(req.body);
 
   const token = await user.generateAuthToken();
   try {
-    res.status(201).cookie("authToken", token, {
-      httpOnly: true,
-      secure: true,
-      signed: true,
-    });
+    res.cookie("authToken", token, cookieOptions);
+    res.redirect("/");
   } catch (e) {
     res.status(500).send(e);
   }
 });
 
 router.get("/users/login", (req, res) => {
+  if (req.cookies.authToken) {
+    return res.redirect("/");
+  }
   res.render("login");
+});
+
+router.get("/users/signup", (req, res) => {
+  res.render("signup");
 });
 
 router.post("/users/login", async (req, res) => {
@@ -29,13 +39,9 @@ router.post("/users/login", async (req, res) => {
       req.body.password
     );
     const token = await user.generateAuthToken();
-    res.cookie("authToken", token, {
-      sameSite: "strict",
-      httpOnly: true,
-      secure: true,
-    });
+
+    res.cookie("authToken", token, cookieOptions);
     res.redirect("/");
-    console.log(req.cookies);
   } catch (e) {
     res.status(400).send(e);
   }
