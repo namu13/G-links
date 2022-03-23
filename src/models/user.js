@@ -3,35 +3,48 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const userSchema = new mongoose.Schema({
-  nickname: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    validate(value) {
-      if (!validator.isEmail(value)) {
-        throw new Error("Email is invalid");
-      }
+const userSchema = new mongoose.Schema(
+  {
+    nickname: {
+      type: String,
+      required: true,
     },
-  },
-  password: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  tokens: [
-    {
-      token: {
-        type: String,
-        require: true,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error("Email is invalid");
+        }
       },
     },
-  ],
+    password: {
+      type: String,
+      required: true,
+      minLength: 6,
+      trim: true,
+    },
+    tokens: [
+      {
+        token: {
+          type: String,
+          require: true,
+        },
+      },
+    ],
+  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
+
+userSchema.virtual("links", {
+  ref: "link",
+  localField: "_id",
+  foreignField: "owner",
 });
 
 userSchema.pre("save", async function (next) {
