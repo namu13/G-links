@@ -1,0 +1,95 @@
+.settings__title {
+  padding: 100px 0 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.box__item__icon {
+  display: flex;
+}
+
+.box__item__delete {
+  width: 18px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.box__item__delete:hover {
+  transform: scale(1.07);
+}
+.box__item__delete:active {
+  transform: scale(0.97);
+}
+
+.settings__title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.box__user-info {
+  margin-top: 30px;
+}
+
+.box__user-info__section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.box__section__label {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.box__section__contents__input {
+  width: 200px;
+  padding: 4px 10px;
+  font-size: 15px;
+  font-weight: 900;
+  background-color: var(--beige);
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  transition: border 0.2s ease-in-out;
+}
+
+.box__section__contents__input:valid {
+  background-color: white;
+}
+
+.box__section__contents__input:focus {
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.button__box {
+  display: flex;
+  margin: 60px 0 40px 50px;
+  gap: 40px;
+}
+
+.box__user-info__submit,
+.setting-button__submit,
+.setting-button__exit,
+.setting-button__logout,
+.setting-button__logout-all {
+  background-color: var(--dark-beige);
+  padding: 7px;
+  border: none;
+  border-radius: 8px;
+  width: 100px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.setting-button__exit {
+  background-color: #fc9494;
+}
+
+.setting-button__logout-all {
+  width: fit-content;
+}
