@@ -60,7 +60,7 @@ router.get("/users/me", auth, async (req, res) => {
   }
 });
 
-router.post("users/logout", auth, async (req, res) => {
+router.post("/users/logout", auth, async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter(
       (token) => token.token !== req.token
@@ -73,7 +73,7 @@ router.post("users/logout", auth, async (req, res) => {
   }
 });
 
-router.post("users/logoutAll", auth, async (req, res) => {
+router.post("/users/logoutAll", auth, async (req, res) => {
   try {
     req.user.tokens = [];
     await req.user.save();
@@ -98,18 +98,19 @@ router.patch("/users/me", auth, async (req, res) => {
       req.user[item] = req.body[item];
     });
     await req.user.save();
-    res.send(req.user);
+    res.redirect("/users/me");
   } catch (e) {
-    res.status(400).send(e);
+    res.status(400).redirect("/users/me");
   }
 });
 
 router.delete("/users/me", auth, async (req, res) => {
   try {
     await req.user.remove();
-    res.send();
+    res.clearCookie("authToken");
+    res.redirect("/");
   } catch (e) {
-    res.status(500).send();
+    res.status(500).redirect("/users/me");
   }
 });
 
