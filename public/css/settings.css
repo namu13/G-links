@@ -19,7 +19,7 @@
   transform: scale(1.07);
 }
 .box__item__delete:active {
-  transform: scale(0.97);
+  transform: scale(0.93);
 }
 
 .settings__title {

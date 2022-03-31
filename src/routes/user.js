@@ -48,13 +48,16 @@ router.post("/users/login", async (req, res) => {
 });
 
 router.get("/users/me", auth, async (req, res) => {
-  await req.user.populate("links");
-  const user = req.user.toObject();
-  delete user.password;
-  delete user.tokens;
-  console.log(user);
+  try {
+    await req.user.populate("links");
+    const user = req.user.toObject();
+    delete user.password;
+    delete user.tokens;
 
-  res.render("settings", req.user);
+    res.render("settings", req.user);
+  } catch (e) {
+    res.send(e);
+  }
 });
 
 router.post("users/logout", auth, async (req, res) => {

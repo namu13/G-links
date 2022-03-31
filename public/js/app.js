@@ -7,6 +7,20 @@ copyButtons.forEach((copyButton) => {
   });
 });
 
+// Link delete (trash-can) button logic
+const deleteButtons = document.querySelectorAll(".box__item__delete");
+
+deleteButtons.forEach((deleteButton) => {
+  deleteButton.addEventListener("click", async () => {
+    const req = await fetch(`/link/${deleteButton.attributes[1].value}`, {
+      method: "DELETE",
+    });
+  });
+  deleteButton.addEventListener("click", () => {
+    location.reload();
+  });
+});
+
 // upload button logic
 const uploadButton = document.querySelector(".add_link");
 const uploadForm = document.querySelector(".upload");
@@ -151,10 +165,3 @@ for (year; year > 2016; year--) {
 //     });
 //   });
 // }
-
-// 글자가 한줄을 넘어갔을때 조치가 필요함 - 필수
-
-// 블럭이 페이지 이상으로 추가됬을 때 조치가 필요함
-// 슬라이더 버튼 추가해야 할 듯 - 룸메쓰랑 논의
-// position sticky
-// overflow가 됬을때만 chevron 활성화
