@@ -21,7 +21,7 @@ main.settings
     .box
         h2.box__name #{nickname}님의 회원정보
         span.box__description *바꾸고 싶은 정보만 바꾸어 수정 버튼 눌러주세요!
-        form.box__user-info(action="/users/me" method="post")
+        form.box__user-info(action="/users/me?_method=patch" method="post")
             .box__user-info__section 
                 label.box__section__label(for="nickname") 닉네임
                 input.box__section__contents__input(placeholder = nickname type="text", id="nickname", name="nickname" required)
@@ -33,12 +33,10 @@ main.settings
             .box__user-info__section
                 label.box__section__label(for="password") 비밀번호
                 input.box__section__contents__input(placeholder = "********" type="password", id="password", name="password" required)
-            input(type="hidden" name="_method" value="patch")
             input.box__user-info__submit(type="submit" value="수정")
 
     .button__box
-        form.settings-button(action="/users/me" method="post") 
-            input(type="hidden" name="_method" value="delete")
+        form.settings-button(action="/users/me?_method=delete" method="post") 
             input.setting-button__exit(type="submit", value="회원 탈퇴")
 
         form.settings-button(action="/users/logout" method="post") 

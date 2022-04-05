@@ -17,7 +17,9 @@ deleteButtons.forEach((deleteButton) => {
     });
   });
   deleteButton.addEventListener("click", () => {
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 100);
   });
 });
 
