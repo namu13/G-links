@@ -11,7 +11,8 @@ const auth = async (req, res, next) => {
     req.token = token;
     next();
   } catch (e) {
-    res.status(400).json({ success: false, message: "Unable to login" });
+    res.status(400).redirect("/");
+    // res.status(400).json({ success: false, message: "Unable to login" });
   }
 };
 module.exports = auth;

@@ -32,6 +32,5 @@ app.listen(port, () => {
   console.log(`Server is listening at prot ${port}`);
 });
 
-// 회원가입 FE 완성
-// 회원가입 cookie 발행 완료
-// 토큰이 있으면 /users/login 라우팅에 접근 불가 설정하여 토큰 계속 누적 방지
+// 링크 카테고리 버튼 삭제
+// 로그인이 안되어있을 떄 설정 페이지 들어가면 메인으로 redirect
