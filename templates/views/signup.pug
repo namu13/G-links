@@ -8,7 +8,7 @@ main.login-main
         form.login__form(action="/users/signup" method="post")
             .login__nickname
                 label.login__email__title(for="nickname") Nickname
-                input.login__email__input(type="nickname" name="nickname" placeholder="닉네임" id="nickname" required)
+                input.login__email__input(type="nickname" name="nickname" placeholder="닉네임" id="nickname" maxlength="6" required)
             .login__email
                 label.login__email__title(for="email") E-mail
                 input.login__email__input(type="email" name="email" placeholder="이메일" id="email" required)
